@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 
+import treePloter
 import operator
 from math import log
 
@@ -124,11 +125,16 @@ def grabTree(filename):
 
 
 if __name__ == '__main__':
-    data_set, labels = createDataSet()
-    input_tree = createTree(data_set, labels[:])
-    print classify(input_tree, labels, [1, 0])
-    print classify(input_tree, labels, [1, 1])
-    filename = 'data/tree.txt'
-    storeTree(input_tree, filename)
-    print grabTree(filename)
+    # data_set, labels = createDataSet()
+    # input_tree = createTree(data_set, labels[:])
+    # print classify(input_tree, labels, [1, 0])
+    # print classify(input_tree, labels, [1, 1])
+    # filename = 'data/tree.txt'
+    # storeTree(input_tree, filename)
+    # print grabTree(filename)
+
+    filename = 'data/lenses.txt'
+    lenses, lenses_labels = createDataSet(filename)
+    lenses_tree = createTree(lenses, lenses_labels)
+    treePloter.createPlot(lenses_tree)
 
